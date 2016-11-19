@@ -16,6 +16,7 @@ class ChampionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.title = "Champions"
         APIRequestManager.manager.getData(endPoint: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=RGAPI-d738917d-a306-4003-92a0-c00f74a49fab") { (data: Data?) in
             if let validData = data,
@@ -60,13 +61,13 @@ class ChampionTableViewController: UITableViewController {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
-        let champion = Champions[indexPath.row]
+//        let champion = Champions[indexPath.row]
         print(indexPath.row)
         
         cell.championLabel?.text = names[indexPath.row]
         
         
-        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_0.jpg") { (data: Data?) in
+        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_2.jpg") { (data: Data?) in
             if  let validData = data,
                 let validImage = UIImage(data: validData) {
                 DispatchQueue.main.async {
@@ -75,6 +76,16 @@ class ChampionTableViewController: UITableViewController {
                 }
             }
         }
+        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_1.jpg") { (data: Data?) in
+            if  let validData = data,
+                let validImage = UIImage(data: validData) {
+                DispatchQueue.main.async {
+                    cell.championSkin.image = validImage
+                    cell.setNeedsLayout()
+                }
+            }
+        }
+
 
         
                 // Configure the cell...
