@@ -29,7 +29,7 @@ class Champion {
                   let data = response["data"] as? [String: Any] //(("Azir", { }))
                 else { throw ChampionParseError.response }
             
-            for (key, value) in data {
+            for (key, _) in data {
                 //the keys are all the champion names
                 
                 guard let champ = data["\(key)"] as? [String: Any]

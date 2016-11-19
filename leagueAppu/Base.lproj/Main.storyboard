@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,39 @@
                                     <frame key="frameInset" width="375" height="173"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thF-e1-5U5"/>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-Xn-G9n">
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pfy-ei-CLl">
+                                                    <subviews>
+                                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-Qt-OHi">
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1CO-gw-hyF">
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5w-Wd-wAq"/>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thF-e1-5U5"/>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="1CO-gw-hyF" firstAttribute="top" secondItem="6cL-Qt-OHi" secondAttribute="top" id="4KP-dn-VUa"/>
+                                                                <constraint firstItem="1CO-gw-hyF" firstAttribute="leading" secondItem="6cL-Qt-OHi" secondAttribute="leading" id="8or-YM-gkr"/>
+                                                                <constraint firstAttribute="trailing" secondItem="1CO-gw-hyF" secondAttribute="trailing" id="DeG-6P-rL9"/>
+                                                                <constraint firstItem="1CO-gw-hyF" firstAttribute="centerY" secondItem="6cL-Qt-OHi" secondAttribute="centerY" id="Fom-ef-8XM"/>
+                                                                <constraint firstAttribute="bottom" secondItem="1CO-gw-hyF" secondAttribute="bottom" id="IOy-dC-Ctl"/>
+                                                            </constraints>
+                                                        </scrollView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pfy-ei-CLl" firstAttribute="centerY" secondItem="OnW-Xn-G9n" secondAttribute="centerY" id="EyY-wd-deB"/>
+                                                <constraint firstItem="pfy-ei-CLl" firstAttribute="centerX" secondItem="OnW-Xn-G9n" secondAttribute="centerX" id="FMG-4i-QhR"/>
+                                                <constraint firstAttribute="bottom" secondItem="pfy-ei-CLl" secondAttribute="bottom" constant="20" id="OSY-6N-j0R"/>
+                                                <constraint firstItem="pfy-ei-CLl" firstAttribute="leading" secondItem="OnW-Xn-G9n" secondAttribute="leading" constant="20" id="YiO-OZ-dOx"/>
+                                                <constraint firstItem="pfy-ei-CLl" firstAttribute="top" secondItem="OnW-Xn-G9n" secondAttribute="top" constant="20" id="ZmB-el-GzA"/>
+                                                <constraint firstAttribute="trailing" secondItem="pfy-ei-CLl" secondAttribute="trailing" constant="20" id="fE2-z9-hRY"/>
+                                            </constraints>
+                                        </scrollView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSG-Us-DCw">
                                             <frame key="frameInset" minX="74" minY="76" width="122" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,14 +72,18 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="thF-e1-5U5" firstAttribute="top" secondItem="yWb-Lo-u6g" secondAttribute="top" id="G6P-mt-Bd3"/>
-                                        <constraint firstAttribute="bottom" secondItem="thF-e1-5U5" secondAttribute="bottom" id="K2R-TW-x9A"/>
-                                        <constraint firstItem="thF-e1-5U5" firstAttribute="leading" secondItem="yWb-Lo-u6g" secondAttribute="leading" id="aPd-qN-GkO"/>
-                                        <constraint firstAttribute="trailing" secondItem="thF-e1-5U5" secondAttribute="trailing" id="fiE-l9-eF4"/>
+                                        <constraint firstAttribute="trailing" secondItem="OnW-Xn-G9n" secondAttribute="trailing" id="Vsf-hj-5qN"/>
+                                        <constraint firstItem="OnW-Xn-G9n" firstAttribute="leading" secondItem="yWb-Lo-u6g" secondAttribute="leadingMargin" id="e7Z-nX-bAV"/>
+                                        <constraint firstItem="OnW-Xn-G9n" firstAttribute="top" secondItem="yWb-Lo-u6g" secondAttribute="topMargin" id="ifm-YJ-tFw"/>
+                                        <constraint firstItem="OnW-Xn-G9n" firstAttribute="centerY" secondItem="yWb-Lo-u6g" secondAttribute="centerY" id="mrJ-rh-CIf"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="1CO-gw-hyF" firstAttribute="width" secondItem="NNU-8z-TjC" secondAttribute="width" id="Dtt-eX-32v"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="championLabel" destination="gSG-Us-DCw" id="v6p-MT-PIM"/>
+                                    <outlet property="championSkin" destination="p5w-Wd-wAq" id="SF5-25-J40"/>
                                     <outlet property="championSplash" destination="thF-e1-5U5" id="hjc-u9-UIT"/>
                                 </connections>
                             </tableViewCell>

@@ -10,8 +10,10 @@ import UIKit
 
 class ChampionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var championSkin: UIImageView!
     @IBOutlet weak var championSplash: UIImageView!
     @IBOutlet weak var championLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
