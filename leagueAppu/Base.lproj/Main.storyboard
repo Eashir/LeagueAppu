@@ -19,7 +19,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="championCell" rowHeight="174" id="NNU-8z-TjC" customClass="ChampionTableViewCell" customModule="LeagueAppu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="174"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NNU-8z-TjC" id="yWb-Lo-u6g">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" tableViewCell="NNU-8z-TjC" id="yWb-Lo-u6g">
                                     <frame key="frameInset" width="375" height="173"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -29,19 +29,22 @@
                                                     <subviews>
                                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-Qt-OHi">
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1CO-gw-hyF">
+                                                                <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1CO-gw-hyF">
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5w-Wd-wAq"/>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thF-e1-5U5"/>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5w-Wd-wAq"/>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="298" id="fGX-JJ-QFZ"/>
+                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="1CO-gw-hyF" firstAttribute="leading" secondItem="6cL-Qt-OHi" secondAttribute="leading" id="1xi-2i-GbW"/>
                                                                 <constraint firstItem="1CO-gw-hyF" firstAttribute="top" secondItem="6cL-Qt-OHi" secondAttribute="top" id="4KP-dn-VUa"/>
-                                                                <constraint firstItem="1CO-gw-hyF" firstAttribute="leading" secondItem="6cL-Qt-OHi" secondAttribute="leading" id="8or-YM-gkr"/>
-                                                                <constraint firstAttribute="trailing" secondItem="1CO-gw-hyF" secondAttribute="trailing" id="DeG-6P-rL9"/>
                                                                 <constraint firstItem="1CO-gw-hyF" firstAttribute="centerY" secondItem="6cL-Qt-OHi" secondAttribute="centerY" id="Fom-ef-8XM"/>
                                                                 <constraint firstAttribute="bottom" secondItem="1CO-gw-hyF" secondAttribute="bottom" id="IOy-dC-Ctl"/>
+                                                                <constraint firstAttribute="trailing" secondItem="1CO-gw-hyF" secondAttribute="trailing" id="iQQ-JC-P3K"/>
                                                             </constraints>
                                                         </scrollView>
                                                     </subviews>
@@ -72,14 +75,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="OnW-Xn-G9n" secondAttribute="trailing" id="Vsf-hj-5qN"/>
-                                        <constraint firstItem="OnW-Xn-G9n" firstAttribute="leading" secondItem="yWb-Lo-u6g" secondAttribute="leadingMargin" id="e7Z-nX-bAV"/>
+                                        <constraint firstAttribute="trailing" secondItem="OnW-Xn-G9n" secondAttribute="trailing" constant="20" id="Vsf-hj-5qN"/>
                                         <constraint firstItem="OnW-Xn-G9n" firstAttribute="top" secondItem="yWb-Lo-u6g" secondAttribute="topMargin" id="ifm-YJ-tFw"/>
                                         <constraint firstItem="OnW-Xn-G9n" firstAttribute="centerY" secondItem="yWb-Lo-u6g" secondAttribute="centerY" id="mrJ-rh-CIf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
-                                    <constraint firstItem="1CO-gw-hyF" firstAttribute="width" secondItem="NNU-8z-TjC" secondAttribute="width" id="Dtt-eX-32v"/>
+                                    <constraint firstItem="OnW-Xn-G9n" firstAttribute="leading" secondItem="NNU-8z-TjC" secondAttribute="leading" constant="20" id="bJn-EZ-333"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="championLabel" destination="gSG-Us-DCw" id="v6p-MT-PIM"/>
