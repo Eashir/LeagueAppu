@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIKit
+import UIKit //To enable UIColor type
 
 enum ChampionParseError: Error {
     case response, champ, name, lore
@@ -33,7 +33,7 @@ class Champion {
             let jsonData: Any = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             
             guard let response = jsonData as? [String: Any], //(("version", 6.22.1))
-                  let data = response["data"] as? [String: Any] //(("Azir", { }))
+                let data = response["data"] as? [String: Any] //(("Azir", { }))
                 else { throw ChampionParseError.response }
             
             for (key, _) in data {
@@ -45,7 +45,7 @@ class Champion {
                     else { throw ChampionParseError.name}
                 guard let lore = champ["lore"] as? String
                     else { throw ChampionParseError.name}
-              
+                
                 let validChampion = Champion(name: name, lore:lore, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0))
                 
                 Champions?.append(validChampion)

@@ -9,7 +9,7 @@
 import UIKit
 
 class ChampionTableViewController: UITableViewController {
-
+    
     var Champions: [Champion] = []
     var names = [String]()
     
@@ -30,8 +30,8 @@ class ChampionTableViewController: UITableViewController {
             
             
         }
-      
-       
+        
+        
     }
     
     func convertCIImageToCGImage(inputImage: CIImage) -> CGImage! {
@@ -42,15 +42,15 @@ class ChampionTableViewController: UITableViewController {
         return nil
     }
     
-    func getPixelColor(pos: CGPoint, imagee: UIImage) -> UIColor {
+    func getPixelColor(pos: CGPoint, uiImage: UIImage) -> UIColor {
         
-        let ciImage = CIImage(image: imagee)
+        let ciImage = CIImage(image: uiImage)
         let CGImage = convertCIImageToCGImage(inputImage: ciImage!)
         
         let pixelData = CGImage?.dataProvider!.data
         let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
         
-        let pixelInfo: Int = ((Int(imagee.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        let pixelInfo: Int = ((Int(uiImage.size.width) * Int(pos.y)) + Int(pos.x)) * 4
         
         let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
         let g = CGFloat(data[pixelInfo + 1]) / CGFloat(255.0)
@@ -59,22 +59,22 @@ class ChampionTableViewController: UITableViewController {
         
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
-   
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return Champions.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "championCell", for: indexPath) as! ChampionTableViewCell
         
         //These make the cells take up the entire cell space
@@ -92,7 +92,7 @@ class ChampionTableViewController: UITableViewController {
             if  let validData = data,
                 let validImage = UIImage(data: validData) {
                 // Getting a color value from validImage
-                var color = self.getPixelColor(pos: CGPoint(x: 100 , y: 100), imagee: validImage)
+                var color = self.getPixelColor(pos: CGPoint(x: 100 , y: 100), uiImage: validImage)
                 pixelColor = color
                 DispatchQueue.main.async {
                     cell.championSkin.image = validImage
@@ -102,14 +102,14 @@ class ChampionTableViewController: UITableViewController {
                     
                 }
             }
-        
+            
         }
         
-
-
         
-                // Configure the cell...
-
+        
+        
+        // Configure the cell...
+        
         return cell
     }
     
