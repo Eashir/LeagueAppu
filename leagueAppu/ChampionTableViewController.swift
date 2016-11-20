@@ -27,11 +27,7 @@ class ChampionTableViewController: UITableViewController {
                     self.tableView?.reloadData()
                 }
             }
-            
-            
         }
-        
-        
     }
     
     func convertCIImageToCGImage(inputImage: CIImage) -> CGImage! {
@@ -63,12 +59,10 @@ class ChampionTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return Champions.count
     }
     
@@ -99,10 +93,8 @@ class ChampionTableViewController: UITableViewController {
                     cell.championLore?.textColor = pixelColor
                     cell.championLabel?.textColor = pixelColor
                     cell.setNeedsLayout()
-                    
                 }
             }
-            
         }
         
         

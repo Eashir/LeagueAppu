@@ -9,7 +9,7 @@
 import Foundation
 
 class APIRequestManager {
-    //the two lines below show that its a singleton
+    
     static let manager = APIRequestManager()
     private init() {}
     
