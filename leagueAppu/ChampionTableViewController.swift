@@ -22,11 +22,7 @@ class ChampionTableViewController: UITableViewController {
             if let validData = data,
                 let validChampions = Champion.getChampion(from: validData) {
                 self.Champions = validChampions
-                //Sorting champions
-                for eachChampion in validChampions {
-                    self.names.append(eachChampion.name)
-                }
-                self.names.sort{$1 > $0}
+                
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
@@ -37,7 +33,32 @@ class ChampionTableViewController: UITableViewController {
       
        
     }
-
+    
+    func convertCIImageToCGImage(inputImage: CIImage) -> CGImage! {
+        let context = CIContext(options: nil)
+        if context != nil {
+            return context.createCGImage(inputImage, from: inputImage.extent)
+        }
+        return nil
+    }
+    
+    func getPixelColor(pos: CGPoint, imagee: UIImage) -> UIColor {
+        
+        let ciImage = CIImage(image: imagee)
+        let CGImage = convertCIImageToCGImage(inputImage: ciImage!)
+        
+        let pixelData = CGImage?.dataProvider!.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        let pixelInfo: Int = ((Int(imagee.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo + 1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo + 2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo + 3]) / CGFloat(255.0)
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
    
     // MARK: - Table view data source
 
@@ -61,30 +82,29 @@ class ChampionTableViewController: UITableViewController {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
-//        let champion = Champions[indexPath.row]
-        print(indexPath.row)
+        let champion = Champions[indexPath.row]
         
-        cell.championLabel?.text = names[indexPath.row]
+        cell.championLabel?.text = champion.name
+        cell.championLore?.text = champion.lore
         
-        
-        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_2.jpg") { (data: Data?) in
+        var pixelColor = champion.uiColor
+        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.name)_1.jpg") { (data: Data?) in
             if  let validData = data,
                 let validImage = UIImage(data: validData) {
-                DispatchQueue.main.async {
-                    cell.championSplash.image = validImage
-                    cell.setNeedsLayout()
-                }
-            }
-        }
-        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_1.jpg") { (data: Data?) in
-            if  let validData = data,
-                let validImage = UIImage(data: validData) {
+                // Getting a color value from validImage
+                var color = self.getPixelColor(pos: CGPoint(x: 100 , y: 100), imagee: validImage)
+                pixelColor = color
                 DispatchQueue.main.async {
                     cell.championSkin.image = validImage
+                    cell.championLore?.textColor = pixelColor
+                    cell.championLabel?.textColor = pixelColor
                     cell.setNeedsLayout()
+                    
                 }
             }
+        
         }
+        
 
 
         
