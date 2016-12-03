@@ -60,8 +60,7 @@ class ChampionTableViewController: UITableViewController {
         cell.layoutMargins = UIEdgeInsets.zero
         
         //let champion = Champions[indexPath.row]
-        print(indexPath.row)
-        
+
         cell.championLabel?.text = names[indexPath.row]
         
         
