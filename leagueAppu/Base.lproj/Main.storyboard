@@ -7,6 +7,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="eby-5a-YW0">
+            <objects>
+                <viewController id="YCG-bH-vwx" customClass="DetailViewController" customModule="LeagueAppu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g2u-vI-3eW"/>
+                        <viewControllerLayoutGuide type="bottom" id="lzj-cP-nbu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eK8-Yb-BPP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YQ-ei-CcT">
+                                <frame key="frameInset" minX="68" minY="56" width="254" height="532"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="rAk-1q-w7S"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lore" destination="9YQ-ei-CcT" id="RzH-JA-AHg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqh-f9-thF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="-71"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="0e9-y6-39c">
             <objects>
@@ -85,6 +118,7 @@
                                     <outlet property="championLabel" destination="gSG-Us-DCw" id="v6p-MT-PIM"/>
                                     <outlet property="championSkin" destination="p5w-Wd-wAq" id="SF5-25-J40"/>
                                     <outlet property="championSplash" destination="thF-e1-5U5" id="hjc-u9-UIT"/>
+                                    <segue destination="YCG-bH-vwx" kind="show" id="Ohk-eL-mPd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jva-cl-f9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509.60000000000002" y="-68.815592203898049"/>
+            <point key="canvasLocation" x="292" y="-70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qrv-Wy-WDz">

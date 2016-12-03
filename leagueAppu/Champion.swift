@@ -9,16 +9,18 @@
 import Foundation
 
 enum ChampionParseError: Error {
-    case response, champ, name, tags
+    case response, champ, name, tags, description
 }
 
 class Champion {
     let name: String
     let tags: [String]
+    let description: String
     
-    init(name: String, tags: [String]) {
+    init(name: String, tags: [String], description: String) {
         self.name = name
         self.tags = tags
+        self.description = description
     }
     
     static func getChampion(from data: Data) -> [Champion]? {
@@ -38,12 +40,15 @@ class Champion {
                     else { throw ChampionParseError.champ }
                 
                 guard let name = champ["name"] as? String
-                    else { throw ChampionParseError.name}
+                    else { throw ChampionParseError.name }
                 
                 guard let tags = champ["tags"] as? [String]
                     else { throw ChampionParseError.tags }
                 
-                let validChampion = Champion(name: name, tags: tags)
+                guard let description = champ["lore"] as? String
+                    else { throw ChampionParseError.description }
+                
+                let validChampion = Champion(name: name, tags: tags, description: description)
                 
                 Champions?.append(validChampion)
                 

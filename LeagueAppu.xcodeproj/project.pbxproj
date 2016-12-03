@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC38A47F1DF28F9600602023 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC38A47E1DF28F9600602023 /* DetailViewController.swift */; };
 		CC882A581DE02B8E00633751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC882A571DE02B8E00633751 /* AppDelegate.swift */; };
 		CC882A5D1DE02B8E00633751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC882A5B1DE02B8E00633751 /* Main.storyboard */; };
 		CC882A5F1DE02B8E00633751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC882A5E1DE02B8E00633751 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC38A47E1DF28F9600602023 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CC882A541DE02B8E00633751 /* LeagueAppu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeagueAppu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC882A571DE02B8E00633751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC882A5C1DE02B8E00633751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				CC882A701DE0302D00633751 /* ChampionTableViewController.swift */,
 				CC882A731DE06B4600633751 /* ChampionTableViewCell.swift */,
+				CC38A47E1DF28F9600602023 /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				CC882A6B1DE02DD400633751 /* APIRequestManager.swift in Sources */,
 				CC882A741DE06B4600633751 /* ChampionTableViewCell.swift in Sources */,
 				CC882A6E1DE02FE600633751 /* Champion.swift in Sources */,
+				CC38A47F1DF28F9600602023 /* DetailViewController.swift in Sources */,
 				CC882A711DE0302D00633751 /* ChampionTableViewController.swift in Sources */,
 				CC882A581DE02B8E00633751 /* AppDelegate.swift in Sources */,
 			);

@@ -89,7 +89,13 @@ class ChampionTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let dvc = segue.destination as? DetailViewController,
+            let cell = sender as? ChampionTableViewCell,
+            let indexPath = tableView.indexPath(for: cell) {
+            dvc.champion = Champions[indexPath.row]
+            
+            
+        }
     }
     
     

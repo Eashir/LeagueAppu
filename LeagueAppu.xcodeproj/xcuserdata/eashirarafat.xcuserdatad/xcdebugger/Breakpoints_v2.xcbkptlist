@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeagueAppu/Champion.swift"
-            timestampString = "502434350.599021"
+            timestampString = "502436524.854122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "getChampion(from:)"
             landmarkType = "7">
          </BreakpointContent>
