@@ -9,13 +9,17 @@
 import UIKit
 
 class ChampionTableViewCell: UITableViewCell {
-
+    
+    var champion: Champion?
+    
     @IBOutlet weak var championSkin: UIImageView!
     @IBOutlet weak var championSplash: UIImageView!
     @IBOutlet weak var championLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        championLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
         // Initialization code
     }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ChampionParseError: Error {
     case response, champ, name, tags, description
@@ -16,11 +17,13 @@ class Champion {
     let name: String
     let tags: [String]
     let description: String
+    var uiColor: UIColor
     
-    init(name: String, tags: [String], description: String) {
+    init(name: String, tags: [String], description: String, uiColor: UIColor) {
         self.name = name
         self.tags = tags
         self.description = description
+        self.uiColor = uiColor
     }
     
     static func getChampion(from data: Data) -> [Champion]? {
@@ -48,7 +51,7 @@ class Champion {
                 guard let description = champ["lore"] as? String
                     else { throw ChampionParseError.description }
                 
-                let validChampion = Champion(name: name, tags: tags, description: description)
+                let validChampion = Champion(name: name, tags: tags, description: description, uiColor: UIColor(red:0, green:0 ,blue:0 , alpha:1.0))
                 
                 Champions?.append(validChampion)
                 

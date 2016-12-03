@@ -11,13 +11,17 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var champion: Champion?
+    var pixelColorDVC = UIColor()
     
     @IBOutlet weak var lore: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
         lore.text = champion?.description
+        lore.textColor = champion?.uiColor
+        
         // Do any additional setup after loading the view.
     }
 
