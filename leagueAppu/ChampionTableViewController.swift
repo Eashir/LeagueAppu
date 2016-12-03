@@ -37,8 +37,6 @@ class ChampionTableViewController: UITableViewController {
       
        
     }
-
-   
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,13 +59,13 @@ class ChampionTableViewController: UITableViewController {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
-//        let champion = Champions[indexPath.row]
+        //let champion = Champions[indexPath.row]
         print(indexPath.row)
         
         cell.championLabel?.text = names[indexPath.row]
         
         
-        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_2.jpg") { (data: Data?) in
+        APIRequestManager.manager.getData(endPoint: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_2.jpg") { (data: Data?) in
             if  let validData = data,
                 let validImage = UIImage(data: validData) {
                 DispatchQueue.main.async {
@@ -76,7 +74,7 @@ class ChampionTableViewController: UITableViewController {
                 }
             }
         }
-        APIRequestManager.manager.downloadImage(urlString: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_1.jpg") { (data: Data?) in
+        APIRequestManager.manager.getData(endPoint: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(names[indexPath.row])_1.jpg") { (data: Data?) in
             if  let validData = data,
                 let validImage = UIImage(data: validData) {
                 DispatchQueue.main.async {
@@ -85,12 +83,13 @@ class ChampionTableViewController: UITableViewController {
                 }
             }
         }
-
-
-        
-                // Configure the cell...
+        // Configure the cell...
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     
