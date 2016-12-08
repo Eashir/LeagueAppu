@@ -17,9 +17,9 @@ class ChampionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        let endPoint = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=RGAPI-d738917d-a306-4003-92a0-c00f74a49fab"
         self.title = "Champions"
-        APIRequestManager.manager.getData(endPoint: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=RGAPI-d738917d-a306-4003-92a0-c00f74a49fab") { (data: Data?) in
+        APIRequestManager.manager.getData(endPoint: endPoint) { (data: Data?) in
             if let validData = data,
                 let validChampions = Champion.getChampion(from: validData) {
                 self.Champions = validChampions
